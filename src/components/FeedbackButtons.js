@@ -1,14 +1,8 @@
 import React from "react";
 
-const FeedbackButtons = ({
-  title,
-  onGoodClick,
-  onNeutralClick,
-  onBadClick,
-}) => {
+const FeedbackButtons = ({ onGoodClick, onNeutralClick, onBadClick }) => {
   return (
     <div>
-      <h2>{title}</h2>
       <button type="button" onClick={onGoodClick}>
         Good
       </button>

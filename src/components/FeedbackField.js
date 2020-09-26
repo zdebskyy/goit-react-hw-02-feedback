@@ -1,16 +1,19 @@
 import React from "react";
 
-const FeedbackField = ({ title, stats }) => {
+const FeedbackField = ({ stats, total, feedbackValue }) => {
   const { good, neutral, bad } = stats;
 
   return (
     <>
-      <h2>{title}</h2>
       <span>Good :{good}</span>
       <br></br>
       <span>Neutral: {neutral}</span>
       <br></br>
-      <span>Bad :{bad}</span>
+      <span>Bad : {bad}</span>
+      <br></br>
+      <span>Total : {total}</span>
+      <br></br>
+      <span>Positive feedback : {!feedbackValue ? 0 : feedbackValue} % </span>
     </>
   );
 };
