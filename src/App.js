@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FeedbackButtons from "./components/FeedbackButtons";
 import FeedbackField from "./components/FeedbackField";
 import SectionTitle from "./components/SectionTitle";
+import Notification from "./components/Notification";
 
 export default class App extends Component {
   state = {
@@ -65,7 +66,7 @@ export default class App extends Component {
               feedbackValue={positive}
             />
           ) : (
-            <p>No feedback given</p>
+            <Notification message={"No feedback given"} />
           )}
         </SectionTitle>
       </div>
