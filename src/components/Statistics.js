@@ -1,8 +1,6 @@
 import React from "react";
 
-const FeedbackField = ({ stats, total, feedbackValue }) => {
-  const { good, neutral, bad } = stats;
-
+const Statistics = ({ good, neutral, bad, total, feedbackValue }) => {
   return (
     <>
       <span>Good :{good}</span>
@@ -18,4 +16,4 @@ const FeedbackField = ({ stats, total, feedbackValue }) => {
   );
 };
 
-export default FeedbackField;
+export default Statistics;

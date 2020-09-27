@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FeedbackButtons from "./components/FeedbackButtons";
-import FeedbackField from "./components/FeedbackField";
+import Statistics from "./components/Statistics";
 import SectionTitle from "./components/SectionTitle";
 import Notification from "./components/Notification";
 
@@ -44,11 +44,9 @@ export default class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
-    const positive = this.countPositiveFeedbackPercentage(
-      total,
-      this.state.good
-    );
+    const positive = this.countPositiveFeedbackPercentage(total, good);
     return (
       <div>
         <SectionTitle title="Leave a feedback!">
@@ -60,8 +58,10 @@ export default class App extends Component {
         </SectionTitle>
         <SectionTitle title="Statistics">
           {total > 0 ? (
-            <FeedbackField
-              stats={this.state}
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
               total={total}
               feedbackValue={positive}
             />
