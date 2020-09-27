@@ -1,6 +1,7 @@
 import React from "react";
 
-const Statistics = ({ good, neutral, bad, total, feedbackValue }) => {
+const Statistics = ({ stats, total, feedbackValue }) => {
+  const { good, neutral, bad } = stats;
   return (
     <>
       <span>Good :{good}</span>

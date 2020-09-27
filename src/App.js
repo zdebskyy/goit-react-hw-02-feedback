@@ -21,47 +21,29 @@ export default class App extends Component {
     return Math.round((positive * 100) / total);
   };
 
-  handleBtnGood = () => {
+  voteUpdate = (type) => {
     this.setState((prevState) => {
       return {
-        good: prevState.good + 1,
-      };
-    });
-  };
-  handleBtnNeutral = () => {
-    this.setState((prevState) => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-  handleBtnBad = () => {
-    this.setState((prevState) => {
-      return {
-        bad: prevState.bad + 1,
+        [type]: prevState[type] + 1,
       };
     });
   };
 
   render() {
-    const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
-    const positive = this.countPositiveFeedbackPercentage(total, good);
+    const positive = this.countPositiveFeedbackPercentage(
+      total,
+      this.state.good
+    );
     return (
       <div>
         <SectionTitle title="Leave a feedback!">
-          <FeedbackButtons
-            onGoodClick={this.handleBtnGood}
-            onNeutralClick={this.handleBtnNeutral}
-            onBadClick={this.handleBtnBad}
-          />
+          <FeedbackButtons onUpdateClick={this.voteUpdate} />
         </SectionTitle>
         <SectionTitle title="Statistics">
           {total > 0 ? (
             <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
+              stats={this.state}
               total={total}
               feedbackValue={positive}
             />
