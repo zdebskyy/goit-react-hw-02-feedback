@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const FeedbackButtons = ({ onUpdateClick }) => {
   return (
@@ -14,6 +15,9 @@ const FeedbackButtons = ({ onUpdateClick }) => {
       </button>
     </div>
   );
+};
+FeedbackButtons.propTypes = {
+  onUpdateClick: PropTypes.func.isRequired,
 };
 
 export default FeedbackButtons;
